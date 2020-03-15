@@ -1,4 +1,4 @@
-package com.ven.arith.offer.day1;
+package com.ven.arith.offer;
 
 /**
  * 二维数组的查找
@@ -14,11 +14,11 @@ package com.ven.arith.offer.day1;
 请完成一个函数，输入这样的一个二维数组和一个整数，
 判断数组中是否含有该整数。
  */
-public class Demo {
+public class Demo1 {
     public static void main(String[] args) {
         int[][] array1 = {{1,2,8,9},{2,4,9,12},{4,7,10,13},{6,8,11,15}};
         int target1 = 7;
-        System.out.println(new Demo().Find1(target1, array1));
+        System.out.println(new Demo1().Find1(target1, array1));
     }
 
     //case pass rate 58.82%
