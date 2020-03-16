@@ -31,8 +31,7 @@ public class Demo3 {
         ListNode listNode3 = new ListNode(3);
         listNode1.next = listNode2;
         listNode2.next = listNode3;
-        new Demo3().printListFromTailToHead2(listNode1);
-
+        new Demo3().printListFromTailToHead4(listNode1).stream().forEach(System.out :: println);
 
     }
 
@@ -90,14 +89,49 @@ public class Demo3 {
         }
     }
 
-    public ArrayList<Integer> printListFromTailToHead3(ListNode listNode) {
 
-        return null;
+    /**
+     * 运行时间：19ms
+     * 占用内存：9428k
+     * @param listNode
+     * @return
+     * 递归法二
+     */
+    public ArrayList<Integer> printListFromTailToHead3(ListNode listNode) {
+        ArrayList<Integer> ret = new ArrayList<>();
+        if (listNode != null) {
+            ret.addAll(printListFromTailToHead(listNode.next));
+            ret.add(listNode.val);
+        }
+        return ret;
     }
 
-    public ArrayList<Integer> printListFromTailToHead4(ListNode listNode) {
 
-        return null;
+    /**
+     *
+     * 运行时间：17ms
+     * 占用内存：9328k
+     * @param listNode
+     * @return
+     * 头插法逆序 链表反转
+     */
+    public ArrayList<Integer> printListFromTailToHead4(ListNode listNode) {
+        // 头插法构建逆序链表
+        ListNode head = new ListNode(-1);
+        while (listNode != null) {
+         ListNode tamp = listNode.next;
+         listNode.next = head.next;
+         head.next = listNode;
+         listNode = tamp;
+        }
+        // 构建 ArrayList
+        ArrayList<Integer> ret = new ArrayList<>();
+        head = head.next;
+        while (head != null) {
+            ret.add(head.val);
+            head = head.next;
+        }
+        return ret;
     }
 
 
